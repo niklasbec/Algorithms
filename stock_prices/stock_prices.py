@@ -3,7 +3,15 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  maximum = -1000000
+  for val in range(len(prices)-1):
+    rightOf = prices[val+1:]
+    maximumForThis = max(rightOf) - prices[val]
+    if maximumForThis > maximum:
+      maximum = maximumForThis
+  print(maximum)
+  return maximum
+
 
 
 if __name__ == '__main__':

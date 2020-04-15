@@ -3,7 +3,12 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  solution = []
+  moves = ["rock", "paper", "scissor"]
+  if n == 0:
+    solution.push([])
+
+  
 
 
 if __name__ == "__main__":
