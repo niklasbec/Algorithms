@@ -3,7 +3,15 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  output= []
+  if n == 0:
+    return [[]]
+  elif n ==1:
+    return [['rock'], ['paper'], ['scissors']]
+  else:
+    for pick in rock_paper_scissors(n-1):
+      output= output + [pick + ['rock'], pick + [ 'paper'], pick + [ 'scissors'], ]
+  return output
 
 
 if __name__ == "__main__":

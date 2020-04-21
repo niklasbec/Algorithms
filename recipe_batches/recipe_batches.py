@@ -3,7 +3,20 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  batches = 100000000
+  ingVals = list(ingredients.values())
+  recipeVals = list(recipe.values())
+
+  if len(ingVals) < len(recipeVals):
+    batches = 0
+  elif len(ingVals) == 1 and len(recipeVals) == 1:
+    batches = ingVals[0] / recipeVals[0]
+  else:
+    for i in range(len(recipe) - 1):
+      if ingVals[i] / recipeVals[i] < batches:
+        batches = ingVals[i] / recipeVals[i]
+
+  return math.floor(batches)
 
 
 if __name__ == '__main__':
