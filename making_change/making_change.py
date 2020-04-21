@@ -2,8 +2,16 @@
 
 import sys
 
-def making_change(amount, denominations):
-  pass 
+def making_change(amount, denominations, cache = 0):
+  ways = [0 for i in range(amount + 1)]
+  ways[0] = 1
+
+  for value in denominations:
+    for higher_amount in range(1, amount + 1):
+        if value <= higher_amount:
+            ways[higher_amount] += ways[higher_amount - value]
+
+  return ways[amount]
 
 
 if __name__ == "__main__":
